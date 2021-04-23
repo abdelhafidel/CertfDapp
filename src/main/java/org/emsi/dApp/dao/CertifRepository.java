@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional(readOnly = true)
-public interface IdaoFormation extends JpaRepository<Educateur, Integer> {
+public interface CertifRepository extends JpaRepository<Educateur, Integer> {
 	
 	
 

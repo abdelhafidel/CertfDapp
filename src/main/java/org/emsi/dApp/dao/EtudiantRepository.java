@@ -1,11 +1,11 @@
 package org.emsi.dApp.dao;
 
-import org.emsi.dApp.metier.Educateur;
+import org.emsi.dApp.metier.Etudiant;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional(readOnly = true)
-public interface IdaoTest extends JpaRepository<Educateur, Integer> {
+public interface EtudiantRepository extends JpaRepository<Etudiant, Integer> {
 	
 	
 

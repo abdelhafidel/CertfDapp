@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional(readOnly = true)
-public interface IdaoGestionnaire extends JpaRepository<Educateur, Integer> {
+public interface GestionnaireRepository extends JpaRepository<Educateur, Integer> {
 	
 	
 
