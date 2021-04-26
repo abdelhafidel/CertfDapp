@@ -1,0 +1,91 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Nunito', sans-serif;
+    font-size: medium;
+    background-color: #ebedee;
+}
+
+
+.bg-color
+{
+    background-color: 383F51;
+}
+
+.list a
+{
+    text-decoration: none;
+    color: FBFBFF;
+    text-transform: capitalize;
+    margin-right: 25px;
+
+}
+
+.list
+{
+    margin-right: 10vw;
+}
+
+.logo
+{
+    color:FBFBFF ;
+    margin-left: 5vw;
+}
+
+.myform
+{
+   
+    min-height: 70vh;
+}
+
+.incard{
+    min-height: 100%;
+}
+
+
+.btnp
+{
+    float: right;
+    background-color: 383F51;
+  
+}
+
+.card-header
+{
+    background-color: white;
+}
+
+
+
+
+.ctn
+{
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.icon a
+{
+    color: 383F51;
+    transition: color 0.2s ease-in-out;
+    padding-right: 20px;
+}
+
+.icon a:hover
+{
+    color: 06D6A0;
+}
+
+.mybtn
+{
+    background-color: 383F51;
+}
+
+.red{
+    background-color: red;
+}
