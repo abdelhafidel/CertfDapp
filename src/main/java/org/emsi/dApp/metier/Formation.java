@@ -1,6 +1,7 @@
 package org.emsi.dApp.metier;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -35,6 +38,13 @@ public class Formation {
 	@ManyToOne
 	@JoinColumn(name = "id_Gestionnaire")
 	private Gestionnaire gestionnaire;
+	
+	
+	@ManyToMany
+	@JoinTable(name = "formation_etudiant",
+				joinColumns = @JoinColumn(name="id_formation"),
+				inverseJoinColumns = @JoinColumn(name="id_etudiant"))
+	private List<Etudiant> etudiants;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

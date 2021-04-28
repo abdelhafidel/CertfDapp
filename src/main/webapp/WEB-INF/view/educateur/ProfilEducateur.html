@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
@@ -53,13 +53,13 @@
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
     <!--sidebar start-->
-    <aside>
+   <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
          
 		     <li class="mt">
-            <a  href="HomeEtudiant.html">
+            <a class="active" href="HomeEtudiant.html">
               <i class="fa fa-dashboard"></i>
               <span>Home</span>
               </a>
@@ -68,11 +68,17 @@
           <li class="sub-menu">
             <a href="TestControleEtudiant.html">
               <i class="fa fa-book"></i>
-              <span>formation</span>
+              <span>Gestion etudiants</span>
               </a>
           </li>
           <li class="sub-menu">
-            <a class="active" href="ProfilEtudiant.html">
+            <a href="TestControleEtudiant.html">
+              <i class="fa fa-book"></i>
+              <span>Formation</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="ProfilEtudiant.html">
               <i class="fa fa-cog"></i>
               <span>Gestion Profil</span>
               </a>
@@ -90,135 +96,112 @@
     <!-- **********************************************************************************************************************************************************
 		emsi-->
 
+<div id="edit" class="tab-pane">
+					<div
+						style="border-radius: 10px; font-size: large; color: #2c3e50; margin: 20px; padding: 20px; background-color: rgba(255, 255, 255, 0.5);">
+						<div class="row">
 
-    <div id="edit" class="tab-pane">
-      <div style="border-radius: 10px; font-size: large;color:#2c3e50 ; margin: 20px;padding: 20px; background-color: rgba(255, 255, 255,0.5);">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 detailed">
-          <h2 style="color: #2c3e50; text-align: center;">Personal Information</h2>
-          <br>
-          <form role="form" class="form-horizontal">
-            <div class="form-group">
-              <label class="col-lg-2 control-label"> Avatar</label>
-              <div class="col-lg-6">
-                <input type="file" id="exampleInputFile" class="file-pos">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-lg-2 control-label">Company</label>
-              <div class="col-lg-6">
-                <input type="text" placeholder=" " id="c-name" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-lg-2 control-label">Lives In</label>
-              <div class="col-lg-6">
-                <input type="text" placeholder=" " id="lives-in" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-lg-2 control-label">Country</label>
-              <div class="col-lg-6">
-                <input type="text" placeholder=" " id="country" class="form-control">
-              </div>
-            </div>
-          </form>
-        </div>
-        
-        <div class="col-lg-8 col-lg-offset-2 detailed mt">
-         
-          <h2 style="color: #2c3e50; text-align: center;">Contact Information</h2>
-         <br>
-        
-          <form role="form" class="form-horizontal">
-            <div class="form-group">
-              <label class="col-lg-2 control-label">Address 1</label>
-              <div class="col-lg-6">
-                <input type="text" placeholder=" " id="addr1" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-lg-2 control-label">Address 2</label>
-              <div class="col-lg-6">
-                <input type="text" placeholder=" " id="addr2" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-lg-2 control-label">Phone</label>
-              <div class="col-lg-6">
-                <input type="text" placeholder=" " id="phone" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-lg-2 control-label">Cell</label>
-              <div class="col-lg-6">
-                <input type="text" placeholder=" " id="cell" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-lg-2 control-label">Email</label>
-              <div class="col-lg-6">
-                <input type="text" placeholder=" " id="email" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-lg-2 control-label">Skype</label>
-              <div class="col-lg-6">
-                <input type="text" placeholder=" " id="skype" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-lg-offset-2 col-lg-10">
-                <button class="btn btn-theme" type="submit">Save</button>
-                <button class="btn btn-theme04" type="button">Cancel</button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <!-- /col-lg-8 -->
-      
-      </div>
-    </div>
-      <!-- /row -->
-    </div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+							<div class="col-lg-8 col-lg-offset-2 detailed mt">
+
+								<form action="/gestion/savePro" method="POST" role="form"
+									class="form-horizontal">
+									<div class="form-group">
+										<label class="col-lg-2 control-label">Nom</label>
+										<div class="col-lg-6">
+											<input type="text" placeholder=" " id="addr1"
+												class="form-control" name="nom"
+												 "${gestionnaire.nom}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">Prenom</label>
+										<div class="col-lg-6">
+											<input type="text" placeholder=" " id="addr2"
+												class="form-control" name="prenom"
+												 "${gestionnaire.prenom}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">Adresse</label>
+										<div class="col-lg-6">
+											<input type="text" placeholder=" " id="addr2"
+												class="form-control" name="adresse"
+												 "${gestionnaire.adresse}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">Username</label>
+										<div class="col-lg-6">
+											<input type="text" placeholder=" " id="addr2"
+												class="form-control" name="Username"
+												 "${gestionnaire.Username}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">Password</label>
+										<div class="col-lg-6">
+											<input type="password" placeholder=" " id="addr2"
+												name="password" class="form-control">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">sexe</label>
+										<div class="col-lg-6">
+											Mr:&nbsp;<input class="form-check-input" type="radio"
+												th:field="*{gestionnaire.sexe}" id="exampleRadios1"
+												value="Mr"> Ms:&nbsp;<input class="form-check-input"
+												type="radio" th:field="*{gestionnaire.sexe}"
+												id="exampleRadios2" value="Ms">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">Date de
+											Naissance</label>
+										<div class="col-lg-6">
+											<input type="date" placeholder=" " id="phone"
+												class="form-control" name="date_nais">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-2 control-label">Email</label>
+										<div class="col-lg-6">
+											<input type="text" placeholder=" " id="email"
+												class="form-control" name="email"
+												 "${gestionnaire.email}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">Date d'entrer</label>
+										<div class="col-lg-6">
+											<input type="date" placeholder=" " id="phone"
+												class="form-control" name="date_Entrer">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">Code service</label>
+										<div class="col-lg-6">
+											<input type="text" placeholder=" " id="phone"
+												class="form-control" name="code_service"
+												 "${gestionnaire.code_service}">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-lg-offset-2 col-lg-10">
+											<button class="btn btn-theme" type="submit">Save</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- /col-lg-8 -->
+
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+
+
 		
 		
 		

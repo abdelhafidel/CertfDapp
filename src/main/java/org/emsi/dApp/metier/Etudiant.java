@@ -21,6 +21,9 @@ public class Etudiant extends Utilisateur {
 	@OneToMany(mappedBy = "etudiant",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private List<Certif> certifs;
 	
+	@ManyToMany(mappedBy = "etudiants",fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
+	private List<Formation> formations;
+	
 	@ManyToMany(mappedBy = "etudiants",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	private List<Test> tests;
 	
