@@ -8,6 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,6 +26,8 @@ public class Educateur extends Utilisateur {
 	private List<Formation> formations;
 
 	private String specialite;
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_Entrer;
 	
 	public Educateur(String nom, String prenom, String adresse, String username, String password, String sexe,

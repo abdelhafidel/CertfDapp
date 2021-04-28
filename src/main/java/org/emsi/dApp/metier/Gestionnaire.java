@@ -7,6 +7,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,8 +25,11 @@ public class Gestionnaire extends Utilisateur{
 	
 	@OneToMany(mappedBy = "gestionnaire",fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
 	private List<Formation> formations;
-		
+	
+
 	private String code_service;
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_Entrer;
 	
 	
