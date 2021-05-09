@@ -1,8 +1,6 @@
 package org.emsi.dApp.metier;
 
 import java.util.Date;
-
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,12 +11,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 
+@Component
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Data @NoArgsConstructor  @ToString
@@ -37,6 +37,10 @@ public class Utilisateur {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_nais;
 	private String email;
+	
+	public String role(){
+		return "";
+	}
 	
 	public Utilisateur(String nom, String prenom, String adresse, String username, String password, String sexe,
 			Date date_nais, String email) {

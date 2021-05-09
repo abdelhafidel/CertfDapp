@@ -6,8 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="Dashboard">
-<meta name="keyword"
-	content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 <title>Gestion Etudiant</title>
 
 <!-- Favicons -->
@@ -63,17 +61,18 @@
 				<!-- sidebar menu start-->
 				<ul class="sidebar-menu" id="nav-accordion">
 
-					<li class="mt"><a class="active" href="HomeEtudiant.html">
-							<i class="fa fa-dashboard"></i> <span>Home</span>
+					<li class="mt"><a href="/Educateur/home"> <i
+							class="fa fa-dashboard"></i> <span>Home</span>
 					</a></li>
 
-					<li class="sub-menu"><a href="TestControleEtudiant.html">
-							<i class="fa fa-book"></i> <span>Gestion etudiants</span>
+					<li class="sub-menu"><a href="/Educateur/GestionEtu"
+						class="active"> <i class="fa fa-book"></i> <span>Gestion
+								etudiants</span>
 					</a></li>
-					<li class="sub-menu"><a href="TestControleEtudiant.html">
-							<i class="fa fa-book"></i> <span>Formation</span>
+					<li class="sub-menu"><a href="/Educateur/GestionForm"> <i
+							class="fa fa-book"></i> <span>Formation</span>
 					</a></li>
-					<li class="sub-menu"><a href="ProfilEtudiant.html"> <i
+					<li class="sub-menu"><a href="/Educateur/GestionProf"> <i
 							class="fa fa-cog"></i> <span>Gestion Profil</span>
 					</a></li>
 
@@ -144,12 +143,12 @@
 										<td th:text="${etu.niveau_Scolaire}"></td>
 
 										<td><a type="button" class="btn btn-primary"
-											th:href="@{/gestion/modifyetu(id=${etu.idUser})}"> Modify
-										</a></td>
+											th:href="@{/Educateur/modifyEtu(id=${etu.idUser})}">
+												Modify </a></td>
 
 										<td><a type="button" class="btn btn-danger"
-											th:href="@{/gestion/deleteetu(id=${etu.idUser})}"> Delete
-										</a></td>
+											th:href="@{/Educateur/deleteEtu(id=${etu.idUser})}">
+												Delete </a></td>
 
 
 									</tr>
@@ -168,7 +167,7 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<h3 class="modal-title" id="exampleModalLongTitle">Ajout
-									Educateur</h3>
+									Etudiant</h3>
 								<button type="button" class="close" data-dismiss="modal"
 									aria-label="Close">
 									<span aria-hidden="true">&times;</span>
@@ -176,7 +175,7 @@
 							</div>
 							<div class="modal-body">
 
-								<form action="/gestion/saveEducateur" method="POST" role="form"
+								<form action="#" th:object="${etudiant}" th:action="@{/Educateur/saveEtudiant}" method="post" role="form"
 									class="form-horizontal">
 									<div class="form-group">
 										<label class="col-lg-2 control-label">Nom</label>
@@ -217,9 +216,9 @@
 										<label class="col-lg-2 control-label">sexe</label>
 										<div class="col-lg-6">
 											Mr:&nbsp;<input class="form-check-input" type="radio"
-												 id="exampleRadios1" value="Mr">
+												id="exampleRadios1" name="sexe"  value="Mr"> <!--th:feild="*{etudiant.sexe}" -->
 											Ms:&nbsp;<input class="form-check-input" type="radio"
-												 id="exampleRadios2" value="Ms">
+												id="exampleRadios2" name="sexe" value="Ms">
 										</div>
 									</div>
 									<div class="form-group">
@@ -239,17 +238,38 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-lg-2 control-label">Date d'entrer</label>
+										<label class="col-lg-2 control-label">CNE</label>
 										<div class="col-lg-6">
-											<input type="date" placeholder=" " id="phone"
-												class="form-control" name="date_Entrer">
+											<input type="text" placeholder=" " id="phone"
+												class="form-control" name="CNE">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-lg-2 control-label">specialite</label>
+										<label class="col-lg-2 control-label">CIN</label>
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="phone"
-												class="form-control" name="specialite">
+												class="form-control" name="CIN">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">filiere</label>
+										<div class="col-lg-6">
+											<input type="text" placeholder=" " id="phone"
+												class="form-control" name="filiere">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">tele</label>
+										<div class="col-lg-6">
+											<input type="text" placeholder=" " id="phone"
+												class="form-control" name="tele">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-2 control-label">niveau_Scolaire</label>
+										<div class="col-lg-6">
+											<input type="text" placeholder=" " id="phone"
+												class="form-control" name="niveau_Scolaire">
 										</div>
 									</div>
 									<div class="form-group">

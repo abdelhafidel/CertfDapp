@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/gestion")
 public class GestionnaireController {
+	
 
 	@Autowired
 	GestionnaireRepository gestionnaireRepository;
@@ -31,6 +32,7 @@ public class GestionnaireController {
 	@GetMapping("/home")
 	public String home() {
 		return "gestionnaire/HomeGestionnaire";
+		
 	}
 
 	

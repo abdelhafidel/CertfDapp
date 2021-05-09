@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,6 +28,7 @@ public class Educateur extends Utilisateur {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_Entrer;
+
 	
 	public Educateur(String nom, String prenom, String adresse, String username, String password, String sexe,
 			Date date_nais, String email,  String specialite, Date date_Entrer) {

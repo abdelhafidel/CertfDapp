@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,6 +34,12 @@ public class Gestionnaire extends Utilisateur{
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_Entrer;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_role")
+	private Role role;
+	
+	
+	
 	
 	public Gestionnaire(String nom, String prenom, String adresse, String username, String password, String sexe,
 			Date date_nais, String email, String code_service, Date date_Entrer) {
@@ -39,6 +47,14 @@ public class Gestionnaire extends Utilisateur{
 	
 		this.code_service = code_service;
 		this.date_Entrer = date_Entrer;
+	}
+
+
+
+
+	@Override
+	public String role() {	
+		return role.getRole();
 	}
 	
 	
