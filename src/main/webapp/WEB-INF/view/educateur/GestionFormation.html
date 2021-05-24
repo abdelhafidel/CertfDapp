@@ -42,7 +42,7 @@
 					data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
-			<a href="/gestion/educateur" class="logo"><b>Gestion Etudiant</b></a>
+			<a href="/gestion/educateur" class="logo"><b>Gestion Formation</b></a>
 			<!--logo end-->
 			<div class="nav notify-row" id="top_menu"></div>
 			<div class="top-menu">
@@ -66,10 +66,10 @@
 					</a></li>
 
 					<li class="sub-menu"><a href="/Educateur/GestionEtu"
-						class="active"> <i class="fa fa-book"></i> <span>Gestion
+						> <i class="fa fa-book"></i> <span>Gestion
 								etudiants</span>
 					</a></li>
-					<li class="sub-menu"><a href="/Educateur/GestionForm"> <i
+					<li class="sub-menu"><a class="active" href="/Educateur/GestionForm"> <i
 							class="fa fa-book"></i> <span>Formation</span>
 					</a></li>
 					<li class="sub-menu"><a href="/Educateur/GestionProf"> <i
@@ -102,7 +102,7 @@
 						<h2 style="padding: 10px 10px 30px 10px">
 							<button type="button" class="btn btnp btn-primary"
 								data-toggle="modal" data-target="#myModal">Ajouter
-								Etudiant</button>
+								Formation</button>
 						</h2>
 
 					</div>
@@ -111,48 +111,28 @@
 							<table id="myTable" class="display">
 								<thead>
 									<tr>
-										<th>nom</th>
-										<th>prenom</th>
-										<th>adresse</th>
-										<th>username</th>
-										<th>sexe</th>
-										<th>date de naissance</th>
-										<th>email</th>
-										<th>CIN</th>
-										<th>CNE</th>
-										<th>filiere</th>
-										<th>tele</th>
-										<th>niveau</th>
+										<th>lebelle</th>
+										<th>titre</th>
+										<th>date de debut</th>
+										<th>date de fin</th>
+										<th>educateur</th>
 										<th></th>
-										<th></th>
+
 									</tr>
 								</thead>
 								<tbody>
-									<tr th:each="etu:${etudiants}">
-										<td th:text="${etu.nom}"></td>
-										<td th:text="${etu.prenom}"></td>
-										<td th:text="${etu.adresse}"></td>
-										<td th:text="${etu.username}"></td>
-										<td th:text="${etu.sexe}"></td>
-										<td th:text="${etu.date_nais}"></td>
-										<td th:text="${etu.email}"></td>
-										<td th:text="${etu.CIN}"></td>
-										<td th:text="${etu.CNE}"></td>
-										<td th:text="${etu.filiere}"></td>
-										<td th:text="${etu.tele}"></td>
-										<td th:text="${etu.niveau_Scolaire}"></td>
 
-										<td><a type="button" class="btn btn-primary"
-											th:href="@{/Educateur/modifyEtu(id=${etu.idUser})}">
-												Modify </a></td>
-
+									<tr th:each="cour:${cours}">
+										<td th:text="${cour.lebelle}"></td>
+										<td th:text="${cour.titre}"></td>
+										<td th:text="${cour.date_debut}"></td>
+										<td th:text="${cour.date_fin}"></td>
+										<td th:text="${cour.educateur.nom}"></td>
 										<td><a type="button" class="btn btn-danger"
-											th:href="@{/Educateur/deleteEtu(id=${etu.idUser})}">
+											th:href="@{/Educateur/deleteCour(id=${cour.idformation})}">
 												Delete </a></td>
 
-
 									</tr>
-
 								</tbody>
 							</table>
 						</div>
@@ -167,7 +147,7 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<h3 class="modal-title" id="exampleModalLongTitle">Ajout
-									Etudiant</h3>
+									Formation</h3>
 								<button type="button" class="close" data-dismiss="modal"
 									aria-label="Close">
 									<span aria-hidden="true">&times;</span>
@@ -175,103 +155,41 @@
 							</div>
 							<div class="modal-body">
 
-								<form action="#" th:action="@{/Educateur/saveEtudiant}" method="post" role="form"
-									class="form-horizontal">
+								<form action="#" th:action="@{/Educateur/saveFormation}"
+									method="post" role="form" class="form-horizontal">
 									<div class="form-group">
-										<label class="col-lg-2 control-label">Nom</label>
+										<label class="col-lg-2 control-label">lebelle</label>
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="addr1"
-												class="form-control" name="nom">
+												class="form-control" name="lebelle">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-lg-2 control-label">Prenom</label>
+										<label class="col-lg-2 control-label">titre</label>
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="addr2"
-												class="form-control" name="prenom">
+												class="form-control" name="titre">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-lg-2 control-label">Adresse</label>
+										<label class="col-lg-2 control-label">date_debut</label>
 										<div class="col-lg-6">
-											<input type="text" placeholder=" " id="addr2"
-												class="form-control" name="adresse">
+											<input type="date" placeholder=" " id="addr2"
+												class="form-control" name="date_debut">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="col-lg-2 control-label">Username</label>
+										<label class="col-lg-2 control-label">date_fin</label>
 										<div class="col-lg-6">
-											<input type="text" placeholder=" " id="addr2"
-												class="form-control" name="Username">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-lg-2 control-label">Password</label>
-										<div class="col-lg-6">
-											<input type="password" placeholder=" " id="addr2"
-												name="password" class="form-control">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-lg-2 control-label">sexe</label>
-										<div class="col-lg-6">
-											Mr:&nbsp;<input class="form-check-input" type="radio"
-												id="exampleRadios1" name="sexe"  value="Mr"> <!--th:feild="*{etudiant.sexe}" -->
-											Ms:&nbsp;<input class="form-check-input" type="radio"
-												id="exampleRadios2" name="sexe" value="Ms">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-lg-2 control-label">Date de
-											Naissance</label>
-										<div class="col-lg-6">
-											<input type="date" placeholder=" " id="phone"
-												class="form-control" name="date_nais">
+											<input type="date" placeholder=" " id="addr2"
+												class="form-control" name="date_fin">
 										</div>
 									</div>
 
-									<div class="form-group">
-										<label class="col-lg-2 control-label">Email</label>
-										<div class="col-lg-6">
-											<input type="text" placeholder=" " id="email"
-												class="form-control" name="email">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-lg-2 control-label">CNE</label>
-										<div class="col-lg-6">
-											<input type="text" placeholder=" " id="phone"
-												class="form-control" name="CNE">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-lg-2 control-label">CIN</label>
-										<div class="col-lg-6">
-											<input type="text" placeholder=" " id="phone"
-												class="form-control" name="CIN">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-lg-2 control-label">filiere</label>
-										<div class="col-lg-6">
-											<input type="text" placeholder=" " id="phone"
-												class="form-control" name="filiere">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-lg-2 control-label">tele</label>
-										<div class="col-lg-6">
-											<input type="text" placeholder=" " id="phone"
-												class="form-control" name="tele">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-lg-2 control-label">niveau_Scolaire</label>
-										<div class="col-lg-6">
-											<input type="text" placeholder=" " id="phone"
-												class="form-control" name="niveau_Scolaire">
-										</div>
-									</div>
+									<input
+										th:value="${#request.userPrincipal.principal.ThisUser.idUser}"
+										type="text" name="idEduc" hidden>
+
 									<div class="form-group">
 										<div class="col-lg-offset-2 col-lg-10">
 											<button class="btn btn-theme" type="submit">Save</button>

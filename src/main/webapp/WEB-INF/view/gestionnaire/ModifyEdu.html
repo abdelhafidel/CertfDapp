@@ -44,7 +44,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu ">
-          <li><a class="logout" href="login.html">Logout</a></li>
+          <li><a class="logout" href="/logout">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -77,6 +77,9 @@
               <span>Gestion Cours</span>
               </a>
           </li>
+          <li class="sub-menu"><a href="/gestion/minage"> <i
+							class="fa fa-th"></i> <span>Data Minage</span>
+					</a></li>
           <li class="sub-menu">
             <a href="/gestion/profil">
               <i class="fa fa-cog"></i>
@@ -103,7 +106,7 @@
 
 							<div class="col-lg-8 col-lg-offset-2 detailed mt">
 
-								<form action="/gestion/saveEducateur" method="POST" role="form"
+								<form th:action="@{/gestion/saveEducateur}" action="#" method="POST" role="form"
 									class="form-horizontal">
 									<input  th:value="${edu.idUser}" type="text" name="idUser" hidden>
 									<div class="form-group">

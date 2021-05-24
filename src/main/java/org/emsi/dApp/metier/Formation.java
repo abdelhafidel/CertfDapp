@@ -40,7 +40,8 @@ public class Formation {
 	private Gestionnaire gestionnaire;
 	
 	
-	@ManyToMany
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.DETACH,
+			CascadeType.REFRESH, CascadeType.MERGE })
 	@JoinTable(name = "formation_etudiant",
 				joinColumns = @JoinColumn(name="id_formation"),
 				inverseJoinColumns = @JoinColumn(name="id_etudiant"))

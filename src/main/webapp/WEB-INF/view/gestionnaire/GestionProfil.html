@@ -69,6 +69,9 @@
 					<li class="sub-menu"><a href="/gestion/cour"> <i
 							class="fa fa-th"></i> <span>Gestion Cours</span>
 					</a></li>
+					<li class="sub-menu"><a href="/gestion/minage"> <i
+							class="fa fa-th"></i> <span>Data Minage</span>
+					</a></li>
 					<li class="sub-menu"><a class="active" href="/gestion/profil">
 							<i class="fa fa-cog"></i> <span>Gestion Profil</span>
 					</a></li>
@@ -94,14 +97,16 @@
 
 							<div class="col-lg-8 col-lg-offset-2 detailed mt">
 
-								<form action="/gestion/savePro" method="POST" role="form"
+								<form th:action="@{/gestion/savePro}" action="#" method="POST" role="form"
 									class="form-horizontal">
+									
+									<input type="text" hidden="" th:value=${#request.userPrincipal.principal.ThisUser.idUser} name="idUser"/>
 									<div class="form-group">
 										<label class="col-lg-2 control-label">Nom</label>
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="addr1"
 												class="form-control" name="nom"
-												th:value="${gestionnaire.nom}">
+												th:value=${#request.userPrincipal.principal.ThisUser.nom}>
 										</div>
 									</div>
 									<div class="form-group">
@@ -109,7 +114,7 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="addr2"
 												class="form-control" name="prenom"
-												th:value="${gestionnaire.prenom}">
+												th:value=${#request.userPrincipal.principal.ThisUser.prenom}>
 										</div>
 									</div>
 									<div class="form-group">
@@ -117,7 +122,7 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="addr2"
 												class="form-control" name="adresse"
-												th:value="${gestionnaire.adresse}">
+												th:value=${#request.userPrincipal.principal.ThisUser.adresse}>
 										</div>
 									</div>
 									<div class="form-group">
@@ -125,7 +130,7 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="addr2"
 												class="form-control" name="Username"
-												th:value="${gestionnaire.Username}">
+												th:value=${#request.userPrincipal.principal.ThisUser.username}>
 										</div>
 									</div>
 									<div class="form-group">
@@ -150,7 +155,7 @@
 											Naissance</label>
 										<div class="col-lg-6">
 											<input type="date" placeholder=" " id="phone"
-												class="form-control" name="date_nais" th:value="${gestionnaire.date_nais}">
+												class="form-control" name="date_nais" th:value=${#request.userPrincipal.principal.ThisUser.date_nais}>
 										</div>
 									</div>
 
@@ -159,14 +164,14 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="email"
 												class="form-control" name="email"
-												th:value="${gestionnaire.email}">
+												th:value=${#request.userPrincipal.principal.ThisUser.email}>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-lg-2 control-label">Date d'entrer</label>
 										<div class="col-lg-6">
 											<input type="date" placeholder=" " id="phone"
-												class="form-control" name="date_Entrer" th:value="${gestionnaire.date_Entrer}">
+												class="form-control" name="date_Entrer" th:value=${#request.userPrincipal.principal.ThisUser.date_Entrer}>
 										</div>
 									</div>
 									<div class="form-group">
@@ -174,7 +179,7 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="phone"
 												class="form-control" name="code_service"
-												th:value="${gestionnaire.code_service}">
+												th:value=${#request.userPrincipal.principal.ThisUser.code_service}>
 										</div>
 									</div>
 									<div class="form-group">

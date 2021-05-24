@@ -2,110 +2,103 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="Dashboard">
-  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Gestion Profil</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Dashboard">
+<meta name="keyword"
+	content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+<title>Gestion Profil</title>
 
-  <!-- Favicons -->
-  <link href="../img/favicon.png" rel="icon">
-  <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+<!-- Favicons -->
+<link href="../img/favicon.png" rel="icon">
+<link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Bootstrap core CSS -->
-  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!--external css-->
-  <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="../css/zabuto_calendar.css">
-  <link rel="stylesheet" type="text/css" href="../lib/gritter/css/jquery.gritter.css" />
-  <!-- Custom styles for this template -->
-  <link href="../css/style.css" rel="stylesheet">
-  <link href="../css/style-responsive.css" rel="stylesheet">
-  <script src="../lib/chart-master/Chart.js"></script>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="../main/style.css">
+<!-- Bootstrap core CSS -->
+<link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--external css-->
+<link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../css/zabuto_calendar.css">
+<link rel="stylesheet" type="text/css"
+	href="../lib/gritter/css/jquery.gritter.css" />
+<!-- Custom styles for this template -->
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/style-responsive.css" rel="stylesheet">
+<script src="../lib/chart-master/Chart.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../main/style.css">
 
- 
+
 </head>
 
 <body>
-  <section id="container">
-   
-    <header class="header black-bg">
-      <div class="sidebar-toggle-box">
-        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-      </div>
-      <!--logo start-->
-      <a href="HomeEtudiant.html" class="logo"><b>Profil</b></a>
-      <!--logo end-->
-      <div class="nav notify-row" id="top_menu">
-        
-      </div>
-      <div class="top-menu">
-        <ul class="nav pull-right top-menu ">
-          <li><a class="logout" href="login.html">Logout</a></li>
-        </ul>
-      </div>
-    </header>
-    <!--header end-->
-    <!-- **********************************************************************************************************************************************************
+	<section id="container">
+
+		<header class="header black-bg">
+			<div class="sidebar-toggle-box">
+				<div class="fa fa-bars tooltips" data-placement="right"
+					data-original-title="Toggle Navigation"></div>
+			</div>
+			<!--logo start-->
+			<a href="HomeEtudiant.html" class="logo"><b>Profil</b></a>
+			<!--logo end-->
+			<div class="nav notify-row" id="top_menu"></div>
+			<div class="top-menu">
+				<ul class="nav pull-right top-menu ">
+					<li><a class="logout" href="/login">Logout</a></li>
+				</ul>
+			</div>
+		</header>
+		<!--header end-->
+		<!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
-    <!--sidebar start-->
-     <aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu" id="nav-accordion">
-         
-		     <li class="mt">
-            <a  href="/etudiant/home">
-              <i class="fa fa-dashboard"></i>
-              <span>Home</span>
-              </a>
-          </li>
-         
-          <li class="sub-menu">
-            <a href="/etudiant/cour">
-              <i class="fa fa-book"></i>
-              <span>formation</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a class="active" href="/etudiant/profil">
-              <i class="fa fa-cog"></i>
-              <span>Gestion Profil</span>
-              </a>
-          </li>
-         
-          
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
-    
-    <section id="main-content">
-      <section class="wrapper">
-        
-    <!-- **********************************************************************************************************************************************************
+		<!--sidebar start-->
+		<aside>
+			<div id="sidebar" class="nav-collapse ">
+				<!-- sidebar menu start-->
+				<ul class="sidebar-menu" id="nav-accordion">
+
+					<li class="mt"><a href="/etudiant/home"> <i
+							class="fa fa-dashboard"></i> <span>Home</span>
+					</a></li>
+
+					<li class="sub-menu"><a href="/etudiant/cour"> <i
+							class="fa fa-book"></i> <span>formation</span>
+					</a></li>
+					<li class="sub-menu"><a class="active" href="/etudiant/profil">
+							<i class="fa fa-cog"></i> <span>Gestion Profil</span>
+					</a></li>
+
+
+				</ul>
+				<!-- sidebar menu end-->
+			</div>
+		</aside>
+
+		<section id="main-content">
+			<section class="wrapper">
+
+				<!-- **********************************************************************************************************************************************************
 		emsi-->
-<div id="edit" class="tab-pane">
+				<div id="edit" class="tab-pane">
 					<div
 						style="border-radius: 10px; font-size: large; color: #2c3e50; margin: 20px; padding: 20px; background-color: rgba(255, 255, 255, 0.5);">
 						<div class="row">
 
-
+							<!--  -->
 							<div class="col-lg-8 col-lg-offset-2 detailed mt">
 
-								<form action="/etudiant/saveEtu" method="POST" role="form"
-									class="form-horizontal">
-									<input type="text" th:value="${etu.idUser}"  name="idUser" hidden>
+								<form action="#" th:action="@{/etudiant/saveEtu}" method="post"
+									role="form" class="form-horizontal">
+									
+									<input type="text" name="idUser" th:value="${#request.userPrincipal.principal.ThisUser.idUser}" hidden >
 									<div class="form-group">
 										<label class="col-lg-2 control-label">Nom</label>
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="addr1"
 												class="form-control" name="nom"
-												th:value="${etu.nom}">
+												th:value="${#request.userPrincipal.principal.ThisUser.nom}">
 										</div>
 									</div>
 									<div class="form-group">
@@ -113,7 +106,7 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="addr2"
 												class="form-control" name="prenom"
-												th:value="${etu.prenom}">
+												th:value="${#request.userPrincipal.principal.ThisUser.prenom}">
 										</div>
 									</div>
 									<div class="form-group">
@@ -121,7 +114,7 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="addr2"
 												class="form-control" name="adresse"
-												th:value="${etu.adresse}">
+												th:value="${#request.userPrincipal.principal.ThisUser.adresse}">
 										</div>
 									</div>
 									<div class="form-group">
@@ -129,7 +122,7 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="addr2"
 												class="form-control" name="Username"
-												th:value="${etu.Username}">
+												th:value="${#request.userPrincipal.principal.ThisUser.username}">
 										</div>
 									</div>
 									<div class="form-group">
@@ -143,10 +136,9 @@
 										<label class="col-lg-2 control-label">sexe</label>
 										<div class="col-lg-6">
 											Mr:&nbsp;<input class="form-check-input" type="radio"
-												th:field="*{etu.sexe}" id="exampleRadios1"
-												value="Mr"> Ms:&nbsp;<input class="form-check-input"
-												type="radio" th:field="*{etu.sexe}"
-												id="exampleRadios2" value="Ms">
+												id="exampleRadios1" value="Mr"> Ms:&nbsp;<input
+												class="form-check-input" type="radio" id="exampleRadios2"
+												value="Ms">
 										</div>
 									</div>
 									<div class="form-group">
@@ -154,7 +146,8 @@
 											Naissance</label>
 										<div class="col-lg-6">
 											<input type="date" placeholder=" " id="phone"
-												class="form-control" name="date_nais">
+												class="form-control" name="date_nais"
+												th:value="${#request.userPrincipal.principal.ThisUser.date_nais}">
 										</div>
 									</div>
 
@@ -163,22 +156,17 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="email"
 												class="form-control" name="email"
-												th:value="${etu.email}">
+												th:value="${#request.userPrincipal.principal.ThisUser.email}">
 										</div>
 									</div>
-									<div class="form-group">
-										<label class="col-lg-2 control-label">Date d'entrer</label>
-										<div class="col-lg-6">
-											<input type="date" placeholder=" " id="phone"
-												class="form-control" name="date_Entrer">
-										</div>
-									</div>
+									
+									<!--  -->
 									<div class="form-group">
 										<label class="col-lg-2 control-label">CNE</label>
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="phone"
 												class="form-control" name="CNE"
-												th:value="${etu.CNE}">
+												th:value="${#request.userPrincipal.principal.ThisUser.CNE}">
 										</div>
 									</div>
 									<div class="form-group">
@@ -186,15 +174,7 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="phone"
 												class="form-control" name="CIN"
-												th:value="${etu.CIN}">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-lg-2 control-label">filiere</label>
-										<div class="col-lg-6">
-											<input type="text" placeholder=" " id="phone"
-												class="form-control" name="filiere"
-												th:value="${etu.filiere}">
+												th:value="${#request.userPrincipal.principal.ThisUser.CIN}">
 										</div>
 									</div>
 									<div class="form-group">
@@ -202,7 +182,7 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="phone"
 												class="form-control" name="tele"
-												th:value="${etu.tele}">
+												th:value="${#request.userPrincipal.principal.ThisUser.tele}">
 										</div>
 									</div>
 									<div class="form-group">
@@ -210,9 +190,12 @@
 										<div class="col-lg-6">
 											<input type="text" placeholder=" " id="phone"
 												class="form-control" name="niveau_Scolaire"
-												th:value="${etu.niveau_Scolaire}">
+												th:value="${#request.userPrincipal.principal.ThisUser.niveau_Scolaire}">
 										</div>
 									</div>
+									
+									<!--  -->
+
 									<div class="form-group">
 										<div class="col-lg-offset-2 col-lg-10">
 											<button class="btn btn-theme" type="submit">Save</button>
@@ -220,42 +203,43 @@
 									</div>
 								</form>
 							</div>
+
 							<!-- /col-lg-8 -->
 
 						</div>
 					</div>
 					<!-- /row -->
 				</div>
-		
-		
-		
-		
-       <!-- *********************************************************************************************************************************************************** -->
 
-      </section>
-    </section>
-    <!--main content end-->
-    <!--footer start-->
-    <footer>
-     
-    </footer>
-    <!--footer end-->
-  </section>
-  <!-- js placed at the end of the document so the pages load faster -->
-  <script src="../lib/jquery/jquery.min.js"></script>
 
-  <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-  <script class="include" type="text/javascript" src="../lib/jquery.dcjqaccordion.2.7.js"></script>
-  <script src="../lib/jquery.scrollTo.min.js"></script>
-  <script src="../lib/jquery.nicescroll.js" type="text/javascript"></script>
-  <script src="../lib/jquery.sparkline.js"></script>
-  <!--common script for all pages-->
-  <script src="../lib/common-scripts.js"></script>
-  <script type="text/javascript" src="../lib/gritter/js/jquery.gritter.js"></script>
-  <script type="text/javascript" src="../lib/gritter-conf.js"></script>
-  <!--script for this page-->
-  <script src="../lib/sparkline-chart.js"></script>
-  <script src="../lib/zabuto_calendar.js"></script>
+
+
+				<!-- *********************************************************************************************************************************************************** -->
+
+			</section>
+		</section>
+		<!--main content end-->
+		<!--footer start-->
+		<footer> </footer>
+		<!--footer end-->
+	</section>
+	<!-- js placed at the end of the document so the pages load faster -->
+	<script src="../lib/jquery/jquery.min.js"></script>
+
+	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+	<script class="include" type="text/javascript"
+		src="../lib/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="../lib/jquery.scrollTo.min.js"></script>
+	<script src="../lib/jquery.nicescroll.js" type="text/javascript"></script>
+	<script src="../lib/jquery.sparkline.js"></script>
+	<!--common script for all pages-->
+	<script src="../lib/common-scripts.js"></script>
+	<script type="text/javascript"
+		src="../lib/gritter/js/jquery.gritter.js"></script>
+	<script type="text/javascript" src="../lib/gritter-conf.js"></script>
+	<!--script for this page-->
+	<script src="../lib/sparkline-chart.js"></script>
+	<script src="../lib/zabuto_calendar.js"></script>
 
 </body>
 

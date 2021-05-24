@@ -18,47 +18,35 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-
-
 @Entity
-@Data @EqualsAndHashCode(callSuper = true) @NoArgsConstructor
-public class Gestionnaire extends Utilisateur{
-	
-	
-	@OneToMany(mappedBy = "gestionnaire",fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+public class Gestionnaire extends Utilisateur {
+
+	@OneToMany(mappedBy = "gestionnaire", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	private List<Formation> formations;
-	
 
 	private String code_service;
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date_Entrer;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_role")
 	private Role role;
-	
-	
-	
-	
+
 	public Gestionnaire(String nom, String prenom, String adresse, String username, String password, String sexe,
 			Date date_nais, String email, String code_service, Date date_Entrer) {
 		super(nom, prenom, adresse, username, password, sexe, date_nais, email);
-	
+
 		this.code_service = code_service;
 		this.date_Entrer = date_Entrer;
 	}
 
-
-
-
 	@Override
-	public String role() {	
+	public String role() {
 		return role.getRole();
 	}
-	
-	
-	
-	
-	
+
 }

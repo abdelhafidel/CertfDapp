@@ -49,7 +49,7 @@
 			<div class="nav notify-row" id="top_menu"></div>
 			<div class="top-menu">
 				<ul class="nav pull-right top-menu ">
-					<li><a class="logout" href="login.html">Logout</a></li>
+					<li><a class="logout" href="/logout">Logout</a></li>
 				</ul>
 			</div>
 		</header>
@@ -58,36 +58,27 @@
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
 		<!--sidebar start-->
-		 <aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu" id="nav-accordion">
-         
-		     <li class="mt">
-            <a  href="/etudiant/home">
-              <i class="fa fa-dashboard"></i>
-              <span>Home</span>
-              </a>
-          </li>
-         
-          <li class="sub-menu">
-            <a class="active" href="/etudiant/cour">
-              <i class="fa fa-book"></i>
-              <span>formation</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a href="/etudiant/profil">
-              <i class="fa fa-cog"></i>
-              <span>Gestion Profil</span>
-              </a>
-          </li>
-         
-          
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
+		<aside>
+			<div id="sidebar" class="nav-collapse ">
+				<!-- sidebar menu start-->
+				<ul class="sidebar-menu" id="nav-accordion">
+
+					<li class="mt"><a href="/etudiant/home"> <i
+							class="fa fa-dashboard"></i> <span>Home</span>
+					</a></li>
+
+					<li class="sub-menu"><a class="active" href="/etudiant/cour">
+							<i class="fa fa-book"></i> <span>formation</span>
+					</a></li>
+					<li class="sub-menu"><a href="/etudiant/profil"> <i
+							class="fa fa-cog"></i> <span>Gestion Profil</span>
+					</a></li>
+
+
+				</ul>
+				<!-- sidebar menu end-->
+			</div>
+		</aside>
 
 		<section id="main-content">
 			<section class="wrapper">
@@ -102,10 +93,7 @@
 
 				<div class="tab-pane"
 					style="background-color: rgb(255, 255, 255); border-radius: 5px;">
-					<h2 style="padding: 10px 10px 30px 10px">
-
-					
-					</h2>
+					<h2 style="padding: 10px 10px 30px 10px"></h2>
 					<div style="margin: 0 20px;" class="card-body">
 						<div class="table-responsive">
 							<table id="myTable" class="display">
@@ -129,7 +117,7 @@
 										<td th:text="${cour.date_fin}"></td>
 										<td th:text="${cour.educateur.nom}"></td>
 										<td><a type="button" class="btn btn-warning"
-											th:href="@{/etudiant/AjoutCour(idformation=${cour.idformation})}">
+											th:href="@{/etudiant/AjoutCour(idformation=${cour.idformation},idEtud=${#request.userPrincipal.principal.ThisUser.idUser})}">
 												Ajouter </a></td>
 
 									</tr>
@@ -138,13 +126,6 @@
 						</div>
 					</div>
 				</div>
-
-
-
-
-
-
-
 
 
 				<!--  *********************************************************************************************************************************************************** -->
@@ -169,8 +150,10 @@
 		src="../lib/gritter/js/jquery.gritter.js"></script>
 	<script type="text/javascript" src="../lib/gritter-conf.js"></script>
 	<!--script for this page-->
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
-	<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet"
+		href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+	<script
+		src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 	<script src="../lib/sparkline-chart.js"></script>
 	<script src="../lib/zabuto_calendar.js"></script>
 	<script>

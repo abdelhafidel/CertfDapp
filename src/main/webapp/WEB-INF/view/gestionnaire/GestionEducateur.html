@@ -83,6 +83,9 @@
               <span>Gestion Cours</span>
               </a>
           </li>
+          <li class="sub-menu"><a href="/gestion/minage"> <i
+							class="fa fa-th"></i> <span>Data Minage</span>
+					</a></li>
           <li class="sub-menu">
             <a href="/gestion/profil">
               <i class="fa fa-cog"></i>
@@ -204,7 +207,7 @@
             </div>
             <div class="modal-body">
                      
-          <form action="/gestion/saveEducateur" method="POST" role="form" class="form-horizontal">
+          <form th:action="@{/gestion/saveEducateur}" action="#" method="POST" role="form" class="form-horizontal">
             <div class="form-group">
               <label class="col-lg-2 control-label">Nom</label>
               <div class="col-lg-6">

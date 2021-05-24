@@ -77,6 +77,9 @@
               <span>Gestion Cours</span>
               </a>
           </li>
+          <li class="sub-menu"><a href="/gestion/minage"> <i
+							class="fa fa-th"></i> <span>Data Minage</span>
+					</a></li>
           <li class="sub-menu">
             <a href="/gestion/profil">
               <i class="fa fa-cog"></i>
@@ -175,7 +178,7 @@
             </div>
             <div class="modal-body">
                      
-          <form action="/gestion/saveCour" method="GET" role="form" class="form-horizontal">
+          <form th:action="@{/gestion/saveCour}" action="#" method="GET" role="form" class="form-horizontal">
             <div class="form-group">
               <label class="col-lg-2 control-label">lebelle</label>
               <div class="col-lg-6">

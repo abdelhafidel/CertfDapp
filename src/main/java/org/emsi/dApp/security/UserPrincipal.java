@@ -68,4 +68,7 @@ public class UserPrincipal implements UserDetails {
 		return true;
 	}
 
+	public Utilisateur getThisUser() {
+		return this.user;
+	}
 }

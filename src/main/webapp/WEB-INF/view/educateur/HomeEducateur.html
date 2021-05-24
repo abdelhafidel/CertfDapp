@@ -63,15 +63,15 @@
 				<!-- sidebar menu start-->
 				<ul class="sidebar-menu" id="nav-accordion">
 
-					<li class="mt"><a class="active" href="/Educateur/home">
-							<i class="fa fa-dashboard"></i> <span>Home</span>
+					<li class="mt"><a class="active" href="/Educateur/home"> <i
+							class="fa fa-dashboard"></i> <span>Home</span>
 					</a></li>
 
-					<li class="sub-menu"><a href="/Educateur/GestionEtu">
-							<i class="fa fa-book"></i> <span>Gestion etudiants</span>
+					<li class="sub-menu"><a href="/Educateur/GestionEtu"> <i
+							class="fa fa-book"></i> <span>Gestion etudiants</span>
 					</a></li>
-					<li class="sub-menu"><a href="/Educateur/GestionForm">
-							<i class="fa fa-book"></i> <span>Formation</span>
+					<li class="sub-menu"><a href="/Educateur/GestionForm"> <i
+							class="fa fa-book"></i> <span>Formation</span>
 					</a></li>
 					<li class="sub-menu"><a href="/Educateur/GestionProf"> <i
 							class="fa fa-cog"></i> <span>Gestion Profil</span>
@@ -97,7 +97,8 @@
 		<section id="main-content">
 			<section class="wrapper">
 				<h3>
-					<i class="fa fa-bar-chart-o"></i> Dachborad Educateur
+					<i class="fa fa-bar-chart-o"></i> Dachborad
+					[[${#request.userPrincipal.principal.ThisUser.nom}]]
 				</h3>
 				<!-- page start-->
 				<div class="tab-pane" id="chartjs">
@@ -115,10 +116,13 @@
 											<table id="myTable" class="display">
 												<thead>
 													<tr>
-														<th>name</th>
-														<th>lastname</th>
-														<th>age</th>
-														<th>email</th>
+														<th>lebelle</th>
+														<th>titre</th>
+														<th>date de debut</th>
+														<th>date de fin</th>
+														<th>educateur</th>
+														<th>Etudiant</th>
+														<th>CIN</th>
 														<th></th>
 														<th></th>
 
@@ -126,75 +130,22 @@
 												</thead>
 												<tbody>
 
-													<tr>
-														<td>hafid</td>
-														<td>abbassi</td>
-														<td>23</td>
-														<td>hotmail</td>
+													<tr th:each="cour:${cours}">
+														<span th:each="et:${cour.etudiants}">
+															<td th:text="${cour.lebelle}"></td>
+															<td th:text="${cour.titre}"></td>
+															<td th:text="${cour.date_debut}"></td>
+															<td th:text="${cour.date_fin}"></td>
+															<td th:text="${cour.educateur.nom}"></td>
+															<td th:text="${et.nom}"></td>
+															<td th:text="${et.CIN}"></td>
+															<td><a type="button" class="btn btn-info"
+																th:href="@{/Educateur/validerCertif(idform=${cour.idformation},ideduc=${#request.userPrincipal.principal.ThisUser.idUser},idetud=${et.idUser})}">
+																	Valider </a></td>
 
-														<td>
-															<button type="button" class="btn btn-theme03"
-																data-toggle="modal" data-target="#onmodify">
-																Gestion</button>
-														</td>
-														<td>
-															<button type="button" class="btn btn-danger"
-																data-toggle="modal" data-target="#ondelete">
-																Delete</button>
-														</td>
+
+														</span>
 													</tr>
-													<tr>
-														<td>hafid</td>
-														<td>abbassi</td>
-														<td>23</td>
-														<td>hotmail</td>
-
-														<td>
-															<button type="button" class="btn btn-theme03"
-																data-toggle="modal" data-target="#onmodify">
-																Gestion</button>
-														</td>
-														<td>
-															<button type="button" class="btn btn-danger"
-																data-toggle="modal" data-target="#ondelete">
-																Delete</button>
-														</td>
-													</tr>
-													<tr>
-														<td>hafid</td>
-														<td>abbassi</td>
-														<td>23</td>
-														<td>hotmail</td>
-
-														<td>
-															<button type="button" class="btn btn-theme03"
-																data-toggle="modal" data-target="#onmodify">
-																Gestion</button>
-														</td>
-														<td>
-															<button type="button" class="btn btn-danger"
-																data-toggle="modal" data-target="#ondelete">
-																Delete</button>
-														</td>
-													</tr>
-													<tr>
-														<td>hafid</td>
-														<td>abbassi</td>
-														<td>23</td>
-														<td>hotmail</td>
-
-														<td>
-															<button type="button" class="btn btn-theme03"
-																data-toggle="modal" data-target="#onmodify">
-																Gestion</button>
-														</td>
-														<td>
-															<button type="button" class="btn btn-danger"
-																data-toggle="modal" data-target="#ondelete">
-																Delete</button>
-														</td>
-													</tr>
-
 												</tbody>
 											</table>
 										</div>
